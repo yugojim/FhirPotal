@@ -135,12 +135,8 @@
 										<tr>											
 											<td>{{ section.title }}</td>
 											<td>{{ section.text.div|striptags }}</td>
-											<td>{% for section in section.section %}{{ section.text.div|striptags|linebreaksbr }}
-											{% endfor %}
-											</td>	
-											<td>{% for entry in section.entry %}<a href="/working" target="_blank" >{{ entry.display }}</a>
-											{% endfor %}
-											</td>											
+											<td>{% for section in section.section %}{{ section.text.div|striptags|linebreaksbr }}{% endfor %}</td>	
+											<td>{% for entry in section.entry %}{{ entry.display }}{% endfor %}</td>											
 										</tr>
 										{% endfor %}										 
                                     </tbody>
