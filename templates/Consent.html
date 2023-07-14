@@ -75,7 +75,7 @@
                                             <th>scope</th>
                                             <th>編輯日期時間</th>
 											<th>provision</th>
-											<th>tpoorf</th>
+											<th>Evidence</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -84,7 +84,7 @@
                                             <th>scope</th>
                                             <th>編輯日期時間</th>
 											<th>provision</th>
-											<th>tpoorf</th>
+											<th>Evidence</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -94,7 +94,7 @@
 											<td>{{ entry.resource.scope.coding.0.code }}</td>
 											<td>{{ entry.resource.dateTime }}</td>											
 											<td>{{ entry.resource.provision.type }}</td>
-											<td></td><!--
+											<td><a href="/tpoorf?chain={{ entry.resource.text.div|striptags|linebreaksbr }}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Evidence</a></td><!--
 											<td>
 												{% for section in entry.resource.section %}
 													{{ section.title }}<br>
