@@ -1116,22 +1116,25 @@ def tpoorf(request):
       "tokenId": ""
     }    
     headers = {'Content-Type': 'application/json'}
-    
-    tpoorf=request.GET['chain']
-    tpoorflist=tpoorf.split(",")
-    apikey=tpoorflist[0]
-    tokenId=tpoorflist[1]
-    Verification['apikey']=apikey
-    Verification['tokenId']=tokenId
-    payload = json.dumps(Verification)
-    #print(payload)
-    response = requests.request("POST", Verificationurl, headers=headers, data=payload)
-    resultjson=json.loads(response.text)
-    #print(response.text)
-    context = {
-        'data' : resultjson,
-        }
-    return render(request, 'tpoorf.html', context)
+    try:
+        tpoorf=request.GET['chain']
+        tpoorflist=tpoorf.split(",")
+        apikey=tpoorflist[0]
+        tokenId=tpoorflist[1]
+        Verification['apikey']=apikey
+        Verification['tokenId']=tokenId
+        payload = json.dumps(Verification)
+        #print(payload)
+        response = requests.request("POST", Verificationurl, headers=headers, data=payload)
+        resultjson=json.loads(response.text)
+        #print(response.text)
+        context = {
+            'data' : resultjson,
+            }
+        return render(request, 'tpoorf.html', context)
+    except:
+        context = {} 
+        return render(request, 'tpoorf.html', context)
 
 def working(request):
     html = '<h1> working </h1>'
