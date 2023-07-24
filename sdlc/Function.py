@@ -6,11 +6,7 @@ import datetime
 import requests.packages.urllib3
 requests.packages.urllib3.disable_warnings()
 
-fhir = 'http://104.208.68.39:8080/fhir/'#4600VM
-#fhir = "http://61.67.8.220:8080/fhir/"#skh outside
-#fhir = "http://10.2.1.17:8080/fhir/"#skh inside
-#fhir = "http://106.105.181.72:8080/fhir/"#tpech outside
-
+fhir = 'http://192.168.211.9:8080/fhir/'#4600VM
 
 headers = {    
     'Content-Type': 'application/json',

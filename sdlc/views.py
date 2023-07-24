@@ -4,8 +4,8 @@ from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbid
 from django.views.decorators.csrf import csrf_exempt
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import MessageEvent, TextSendMessage, ImageSendMessage, \
-    VideoSendMessage, AudioSendMessage, LocationSendMessage, StickerSendMessage\
+from linebot.models import MessageEvent, TextSendMessage, ImageSendMessage \
+    #,VideoSendMessage, AudioSendMessage, LocationSendMessage, StickerSendMessage\
         #, ButtonsTemplate, TemplateSendMessage, PostbackTemplateAction, MessageTemplateAction, URITemplateAction
 from datetime import datetime
 
@@ -16,7 +16,7 @@ import json
 import PyPDF2
 import base64
 import requests
-import time
+import psycopg2
 
 from . import Function
 from . import models
@@ -34,14 +34,9 @@ apiurl='https://api.chimei.org.tw/webhooks/20010011'
 LINE_CHANNEL_SECRET ='7829750de3e8f4acde69750e8fef58bc' 
 LINE_CHANNEL_ACCESS_TOKEN ='jqllMrk8LltFwRLsG+01efujKZBcQ8wFcy7CsgY6/D70UFnj3FSF+gUIbysFfXsKYMn9oTDqPkUaTAIXeDNYanQXfub8JztcPLXr6OWTowk8C1q+8nLf8NLOMPNWVgOIAPU3O4qWvcuxMtGNlPQk6gdB04t89/1O/w1cDnyilFU='
 NGROK='https://stemi.chimei.org.tw'
-fhir = 'http://104.208.68.39:8080/fhir/'#4600VM
-#fhir = "http://61.67.8.220:8080/fhir/"#skh
-#fhir = "http://106.105.181.72:8080/fhir/"#tpech
-
-#LINE_CHANNEL_SECRET ='67ac55fc89aa2de4a9ec4f27c022f84a'
-#LINE_CHANNEL_ACCESS_TOKEN ='xRk4XcXIQ7ZGxcqmQqioq/+/zU8DlJVleH4PZXu2AfPBF4Y22J4wMjgxKgUvCAPWhWhpCHRsgNsgJ3eUcTF8dKiK0fVR2DAZSIZaxAShBtzRvFmXloY++mVGlVKj5jN1Z0NdH/pzYsb06svwvo0SxAdB04t89/1O/w1cDnyilFU='
-#NGROK='https://5740-104-208-68-39.ap.ngrok.io'
-#fhir = "http://104.208.68.39:8080/fhir/"
+fhir = 'http://192.168.211.9:8080/fhir/'#4600VM
+postgresip = "192.168.211.19"
+#postgresip = "203.145.222.60"
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(LINE_CHANNEL_SECRET)
@@ -1139,6 +1134,47 @@ def tpoorf(request):
 def working(request):
     html = '<h1> working </h1>'
     return HttpResponse(html, status=200)
+
+@csrf_exempt    
+def logging(request):
+    user = request.user
+    right=models.Permission.objects.filter(user__username__startswith=user.username)
+  
+    try:
+        method=request.POST['method']
+    except:
+        method=''
+    try:
+        formip=request.POST['formip']
+    except:
+        formip=''
+    try:
+        operationdate=request.POST['operationdate']
+    except:
+        operationdate=''    
+    #print(formip,method,operationdate)
+    
+    conn = psycopg2.connect(database="consent", user="postgres", password="1qaz@WSX3edc", host=postgresip, port="5432")
+    cur = conn.cursor()  
+    sqlstring =  "SELECT * FROM public.log WHERE method = '" + method + "'"
+    if formip != '':
+        sqlstring = sqlstring + " AND ip_addr = '" + formip + "'"
+    if operationdate != '':
+        sqlstring = sqlstring + " AND datetime::date = '" + operationdate + "'"
+    sqlstring=sqlstring + " ORDER BY datetime DESC limit 2000;"
+    cur.execute(sqlstring)
+    rows = cur.fetchall()
+    #for row in rows:
+        #print(row)
+    conn.close()
+    context = {
+        'right' : right,
+        'data' : rows,
+        'method' : method,
+        'formip' : formip,
+        'operationdate' : operationdate
+        }                 
+    return render(request, 'logging.html', context)
 
 @csrf_exempt    
 def DischargeSummary(request):

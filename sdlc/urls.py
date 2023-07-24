@@ -48,6 +48,7 @@ urlpatterns = [
     path('VisitNote', views.VisitNote, name='VisitNote'),
     path('DischargeSummaryDetails', views.DischargeSummaryDetails, name='DischargeSummaryDetails'),
     path('tpoorf', views.tpoorf, name='tpoorf'),
+    path('logging', views.logging, name='logging'),
     path('patient_medical_records', views.patient_medical_records, name='patient_medical_records'),
     
     path('PatientUpload/', views.PatientUpload, name='PatientUpload'),
