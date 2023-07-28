@@ -431,6 +431,7 @@ def VisitNoteCRUD(request):
     else:
         DiagnosticReportNursingjsonurl = fhir +'Composition?'
     method=request.POST['method']
+
     resourceTypeid=request.POST['id']
     #print(resourceTypeid)
     if resourceTypeid!='':        
@@ -443,6 +444,9 @@ def VisitNoteCRUD(request):
         Patientname=request.POST['name']
         if Patientname!='':        
             DiagnosticReportNursingjsonurl=DiagnosticReportNursingjsonurl+'subject:Patient.name='+Patientname+'&'
+        pid=request.POST['pid']
+        if pid!='':        
+            DiagnosticReportNursingjsonurl=DiagnosticReportNursingjsonurl+'patient='+pid+'&'
         DiagnosticReportNursingjsonurl=DiagnosticReportNursingjsonurl+'title=門診&_count=200'
         #print(DiagnosticReportNursingjsonurl)
         response = requests.request(method, DiagnosticReportNursingjsonurl, headers=headers, data=payload, verify=False)
