@@ -34,9 +34,11 @@ apiurl='https://api.chimei.org.tw/webhooks/20010011'
 LINE_CHANNEL_SECRET ='7829750de3e8f4acde69750e8fef58bc' 
 LINE_CHANNEL_ACCESS_TOKEN ='jqllMrk8LltFwRLsG+01efujKZBcQ8wFcy7CsgY6/D70UFnj3FSF+gUIbysFfXsKYMn9oTDqPkUaTAIXeDNYanQXfub8JztcPLXr6OWTowk8C1q+8nLf8NLOMPNWVgOIAPU3O4qWvcuxMtGNlPQk6gdB04t89/1O/w1cDnyilFU='
 NGROK='https://stemi.chimei.org.tw'
-fhir = 'http://192.168.211.9:8080/fhir/'#4600VM
-postgresip = "192.168.211.19"
+#fhir = 'http://192.168.211.9:8080/fhir/'#4600VM
+fhir = "http://152.38.3.196:10021/fhir"
+#postgresip = "192.168.211.19"
 #postgresip = "203.145.222.60"
+
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(LINE_CHANNEL_SECRET)
@@ -427,8 +429,7 @@ def Patient(request):
     right=models.Permission.objects.filter(user__username__startswith=user.username)
     fhirip=models.fhirip.objects.all()
     #print(fhirip)
-    try:
-        
+    try:        
         Result,data = Function.PatientCURD(request)
         context = {
                 'right' : right,
