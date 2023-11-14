@@ -21,5 +21,5 @@ COPY supervisord.conf /etc/
 #COPY ssl.key /etc/nginx/ssl.key
 CMD ["/usr/bin/supervisord"]
 
-EXPOSE 8001
+EXPOSE 8050
 #EXPOSE 443
