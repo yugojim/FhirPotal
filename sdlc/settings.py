@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CSRF_TRUSTED_ORIGINS = ['http://sit-fhir.skh.org.tw','https://sit-fhir.skh.org.tw']
+CSRF_TRUSTED_ORIGINS = ['http://104.208.68.39/','https://104.208.68.39/']
 CORS_ALLOW_ALL_ORIGINS = True 
 #CORS_ALLOWED_ORIGINS = ["https://example.com","http://127.0.0.1:9000",]
 #CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://\w+\.example\.com$",]

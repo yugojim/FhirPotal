@@ -1084,7 +1084,7 @@ def DischargeSummaryDetails(request):
         url = fhiripSelect+'Composition/'+DischargeSummaryId
         payload={}
         headers = {}
-        response = requests.request("GET", url, headers=headers, data=payload)
+        response = requests.request("GET", url, headers=headers, data=payload, verify=False)
         resultjson=json.loads(response.text)
         #print(resultjson)
         context = {
