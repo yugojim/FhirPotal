@@ -20,6 +20,18 @@
             <!-- HIS -->
 			{% if user.is_authenticated %}
 			{% if right.0.outpatient %}
+			<li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsep"
+                    aria-expanded="true" aria-controls="collapsep">
+                    <i class="fas fa-fw fa-diagnoses"></i>
+                    <span>就醫紀錄</span>
+                </a>
+                <div id="collapsep" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="{% url 'Composition' %}">就醫紀錄</a>
+                    </div>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">

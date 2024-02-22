@@ -1238,6 +1238,36 @@ def VisitNote(request):
         return render(request, 'VisitNote.html', context)
 
 @csrf_exempt
+def Composition(request):
+    user = request.user
+    #print(user.username)
+    right=models.Permission.objects.filter(user__username__startswith=user.username)
+    #print(right)
+    fhirip=models.fhirip.objects.all()
+    try:
+        fhiripSelect=request.POST['fhirip']
+    except:
+        fhiripSelect=''
+    try:
+        Result,data = Function.CompositionCRUD(request)
+        context = {
+                'fhiripSelect' : fhiripSelect,
+                'fhirip' : fhirip,
+                'right' : right,
+                'FuncResult' : Result,
+                'data' : data
+                }             
+        return render(request, 'Composition.html', context)
+    except:
+        context = {
+                'fhiripSelect' : fhiripSelect,
+                'fhirip' : fhirip,
+                'right' : right,                
+                'FuncResult' : '查無資料'
+            } 
+        return render(request, 'Composition.html', context)
+
+@csrf_exempt
 def Consent(request):
     user = request.user
     #print(user.username)

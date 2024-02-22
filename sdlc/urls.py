@@ -45,6 +45,7 @@ urlpatterns = [
     
     path('working', views.working, name='working'),
     path('DischargeSummary', views.DischargeSummary, name='DischargeSummary'),
+    path('Composition', views.Composition, name='Composition'),
     path('VisitNote', views.VisitNote, name='VisitNote'),
     path('DischargeSummaryDetails', views.DischargeSummaryDetails, name='DischargeSummaryDetails'),
     path('tpoorf', views.tpoorf, name='tpoorf'),

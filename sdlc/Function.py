@@ -422,7 +422,6 @@ def DischargeSummaryCRUD(request):
         #print(method,DiagnosticReportNursingjsonurl,headers,payload)
         resultjson=json.loads(response.text)        
         return ('刪除完畢',resultjson['issue'][0])
-
 def VisitNoteCRUD(request):
     jsonPath=str(pathlib.Path().absolute()) + "/static/template/Composition_DischargeSummary135726.json"
     DiagnosticReportNursingjson = json.load(open(jsonPath,encoding="utf-8"))
@@ -449,6 +448,52 @@ def VisitNoteCRUD(request):
         if pid!='':        
             DiagnosticReportNursingjsonurl=DiagnosticReportNursingjsonurl+'patient='+pid+'&'
         DiagnosticReportNursingjsonurl=DiagnosticReportNursingjsonurl+'title=門診&_count=200'
+        #print(DiagnosticReportNursingjsonurl)
+        response = requests.request(method, DiagnosticReportNursingjsonurl, headers=headers, data=payload, verify=False)
+        resultjson=json.loads(response.text)
+        return ('查詢完畢',resultjson)
+    elif method=='POST':
+        response = requests.request(method, DiagnosticReportNursingjsonurl, headers=headers, data=payload, verify=False)
+        resultjson=json.loads('{"entry":[{"resource":'+response.text+'}]}')
+        return ('新增完畢',resultjson)
+    elif method=='PUT':
+        if fhirip!='':        
+            PUTurl = fhirip + "Composition/" + str(resourceTypeid)
+        else:
+            PUTurl = fhir + "Composition/" + str(resourceTypeid)
+        response = requests.request(method, PUTurl, headers=headers, data=payload, verify=False)
+        resultjson=json.loads('{"entry":[{"resource":'+response.text+'}]}')
+        return ('修改完畢',resultjson)
+    elif method=='DELETE':
+        if fhirip!='':        
+            DELETEurl = fhirip + "Composition/" + str(resourceTypeid)
+        else:
+            DELETEurl = fhir + "Composition/" + str(resourceTypeid)
+        response = requests.request(method, DELETEurl, headers=headers, data=payload, verify=False)
+        resultjson=json.loads(response.text)        
+        return ('刪除完畢',resultjson['issue'][0])
+    
+def CompositionCRUD(request):
+
+    fhirip=request.POST['fhirip']
+    if fhirip!='':        
+        DiagnosticReportNursingjsonurl = fhirip +'Composition?'
+    else:
+        DiagnosticReportNursingjsonurl = fhir +'Composition?'
+    method=request.POST['method']
+    resourceTypeid=request.POST['id']
+        
+    #?subject:Patient.name=Sarah
+    if method=='GET':
+        if resourceTypeid!='':
+            DiagnosticReportNursingjsonurl=DiagnosticReportNursingjsonurl+'_id='+resourceTypeid+'&'
+        Patientname=request.POST['name']
+        if Patientname!='':        
+            DiagnosticReportNursingjsonurl=DiagnosticReportNursingjsonurl+'subject:Patient.name='+Patientname+'&'
+        pid=request.POST['pid']
+        if pid!='':        
+            DiagnosticReportNursingjsonurl=DiagnosticReportNursingjsonurl+'patient='+pid+'&'
+        #DiagnosticReportNursingjsonurl=DiagnosticReportNursingjsonurl+'title=門診&_count=200'
         #print(DiagnosticReportNursingjsonurl)
         response = requests.request(method, DiagnosticReportNursingjsonurl, headers=headers, data=payload, verify=False)
         resultjson=json.loads(response.text)
