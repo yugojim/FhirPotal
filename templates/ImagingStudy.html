@@ -46,7 +46,7 @@
 								<label>ID</label>
 							</div>
 							<div class="form-group col-md-1">
-								<input type="text" class="form-control" id="id" name="id">
+								<input type="text" class="form-control" id="id" name="id" value="{{rid}}">
 							</div>
 							<div class="form-group col-md-1">
 								<label>Patient ID (S)</label>
@@ -76,33 +76,41 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-											<th>ID</th>
+											<th>text</th>
                                             <th>Patient</th>
-											<th>uid</th>
-											<th>Endpoint</th>
-											<th>series</th>
-											<th>instance</th>
+											<th>number Of Series</th>
+											<th>number Of Instances</th>
+											<th>study</th>
+											<th>series-instance</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-											<th>ID</th>
+											<th>text</th>
                                             <th>Patient</th>
-											<th>uid</th>
-											<th>Endpoint</th>
-											<th>series</th>
-											<th>instance</th>
+											<th>number Of Series</th>
+											<th>number Of Instances</th>
+											<th>study</th>
+											<th>series-instance</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
 										{% for entry in data.entry %}
 										<tr>
+											<td>{{ entry.resource.text.div|striptags|linebreaksbr }}</td>
+											<td>{{ entry.resource.subject.display }}</td>
+											<td>{{ entry.resource.numberOfSeries }}</td>
+											<td>{{ entry.resource.numberOfInstances }}</td>
 											<td>{{ entry.resource.id }}</td>
-											<td>{{ entry.resource.subject.reference }}</td>
-											<td>{{ entry.resource.identifier }}</td>
-											<td><a href= "http://137.116.141.127:8080/fhir/{{ entry.resource.endpoint.0.reference }}" target="_blank">{{ entry.resource.endpoint.0.reference }}</a></td>
-											<td>{{ entry.resource.series.0.uid }}</td>
-											<td><a href="http://137.116.141.127:8042/wado/?requestType=WADO&studyUID=1.3.46.670589.11.71916.5.0.14872.2019042920560682013&seriesUID=1.3.46.670589.11.71916.5.0.5656.2019042922075063106&objectUID=1.3.46.670589.11.71916.5.0.5656.2019042922091798212&application%2Fdicom" target="_blank">{{ entry.resource.series.0.instance.0.uid }}</a></td>
+											<td>
+												{% for serie in entry.resource.series %}
+													<p>{{serie.uid}}</p>
+													{% for instance in serie.instance %}
+														<a href="http://104.208.68.39:8042/wado/?requestType=WADO&studyUID={{ entry.resource.id }}&seriesUID={{serie.uid}}&objectUID={{instance.uid}}&contentType=image%2Fjpg" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{{instance.uid}}</a>
+														
+													{% endfor %}
+												{% endfor %}
+											</td>
 										</tr>
 										{% endfor %}										 
                                     </tbody>

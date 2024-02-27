@@ -132,11 +132,11 @@
                                     </tfoot>
                                     <tbody>
 										{% for section in data.section %}
-										<tr>											
+										<tr>										
 											<td>{{ section.title }}</td>
 											<td>{{ section.text.div|striptags }}</td>
-											<td>{% for section in section.section %}{{ section.text.div|striptags|linebreaksbr }}{% endfor %}</td>	
-											<td>{% for entry in section.entry %}{{ entry.display }}{% endfor %}</td>											
+											<td>{% for section in section.section %}{{ section.text.div|striptags|linebreaksbr }}{% endfor %}</td>								
+											<td>{% for entry in section.entry %}<a href="/ImagingStudy?reference={{ entry.reference }}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{{ entry.reference }}</a>{% endfor %}</td>
 										</tr>
 										{% endfor %}										 
                                     </tbody>

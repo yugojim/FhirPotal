@@ -786,18 +786,24 @@ def ConditionStage(request):
 
 def ImagingStudy(request):
     user = request.user
+    try:
+        rid=request.GET['reference'].split('/')[1]
+    except:
+        rid=''
     #print(user.username)
     right=models.Permission.objects.filter(user__username__startswith=user.username)
     try:
         Result,data = Function.ImagingStudyCRUD(request)
         context = {
+                'rid' : rid,
                 'right' : right,
-                'FuncResult' : Result,
+                'FuncResult' : Result,                
                 'data' : data
                 }             
         return render(request, 'ImagingStudy.html', context)
     except:
         context = {
+                'rid' : rid,
                 'right' : right,
                 'FuncResult' : 'Function'
                 } 

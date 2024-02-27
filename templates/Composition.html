@@ -81,37 +81,40 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-											<th>單張編號</th>
-                                            <th>姓名</th>
-                                            <th>就醫紀錄</th>
-                                            <th>編輯日期時間</th>
-											<th>作者</th>
-											<th>標題</th>
+											<th scope="col">就醫日期</th>
+											<th scope="col">標題</th>
+                                            <th scope="col">姓名</th>
+                                            <th scope="col">就醫紀錄</th>
+                                            <th scope="col">紀錄</th>
+											<th scope="col">作者</th>											
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-											<th>單張編號</th>
-                                            <th>姓名</th>
-                                            <th>就醫紀錄</th>
-                                            <th>編輯日期時間</th>
-											<th>作者</th>
-											<th>標題</th>
+											<th scope="col">就醫日期</th>
+											<th scope="col">標題</th>
+                                            <th scope="col">姓名</th>
+                                            <th scope="col">就醫紀錄</th>
+                                            <th scope="col">紀錄</th>
+											<th scope="col">作者</th>											
                                         </tr>
                                     </tfoot>
                                     <tbody>
 										{% for entry in data.entry %}
 										<tr>
-											<td><a href="/DischargeSummaryDetails?fhir={{fhiripSelect}}&id={{ entry.resource.id }}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{{ entry.resource.id }}</a></td>
+											<td><a href="/DischargeSummaryDetails?fhir={{fhiripSelect}}&id={{ entry.resource.id }}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{{ entry.resource.date }}</a></td>
+											<td>{{ entry.resource.title }}</td>
 											<td>{{ entry.resource.subject.display }}</td>
 											<td>{{ entry.resource.encounter.display }}</td>
-											<td>{{ entry.resource.date }}</td>											
+											<td>{% for section in entry.resource.section %}
+													{{ section.title }}
+												{% endfor %}</td>											
 											<td>
 												{% for author in entry.resource.author %}
 													{{ author.display }}
 												{% endfor %}	
 											</td>
-											<td>{{ entry.resource.title }}</td><!--
+											<!--
 											<td>
 												{% for section in entry.resource.section %}
 													{{ section.title }}<br>

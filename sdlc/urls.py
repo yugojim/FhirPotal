@@ -29,7 +29,7 @@ urlpatterns = [
     path('Gene/', views.Gene, name='Gene'),
     path('dbSNP/', views.dbSNP, name='dbSNP'),
     path('risk/', views.getRisk, name='getRisk'),
-    path('ImagingStudy/', views.ImagingStudy, name='ImagingStudy'),
+    
     path('Endpoint/', views.Endpoint, name='Endpoint'),
     path('Medication/', views.Medication, name='Medication'),
     path('MedicationRequest/', views.MedicationRequest, name='MedicationRequest'),
@@ -43,6 +43,7 @@ urlpatterns = [
     path('ObservationImaging/', views.ObservationImaging, name='ObservationImaging'),
     path('linebot', views.linebot, name='linebot'),
     
+    path('ImagingStudy', views.ImagingStudy, name='ImagingStudy'),
     path('working', views.working, name='working'),
     path('DischargeSummary', views.DischargeSummary, name='DischargeSummary'),
     path('Composition', views.Composition, name='Composition'),
