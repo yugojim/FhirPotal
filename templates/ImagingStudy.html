@@ -29,7 +29,7 @@
 						<a href="https://www.hl7.org/fhir/imagingstudy.html" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 								class="fas fa-download fa-sm text-white-50"></i>ImagingStudy Release 4B</a>
 					</div>
-					
+					{% if user.is_authenticated %}
 					<form method="post" action="{% url 'ImagingStudy' %}">
 					{% csrf_token %}
 					<div class="form-group">
@@ -118,6 +118,7 @@
                             </div>
                         </div>
                     </div>
+					{% endif %}
 				</div>
 			</div>
             <!-- Footer -->

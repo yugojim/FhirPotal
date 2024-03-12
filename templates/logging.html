@@ -14,6 +14,7 @@
 
 <body id="page-top">
     <!-- Page Wrapper -->
+	{% if user.is_authenticated %}
     <div id="wrapper">
 	{% include 'utilities-Sidebar.html' %}
         <!-- Content Wrapper -->
@@ -133,6 +134,7 @@
 	</div>
         <!-- End of Content Wrapper -->
     </div>
+	{% endif %}
     <!-- End of Page Wrapper -->
 {% include 'utilities-js.html' %}    
 </body>

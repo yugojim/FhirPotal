@@ -28,7 +28,7 @@
 						<a href="https://emr.mohw.gov.tw/myemr/fhir.html" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 								class="fas fa-download fa-sm text-white-50"></i>衛福部電子病歷推動專區</a>
 					</div>
-					
+					{% if user.is_authenticated %}
 					<form method="post" action="{% url 'Composition' %}">
 					{% csrf_token %}
 					<div class="form-group">
@@ -102,7 +102,7 @@
                                     <tbody>
 										{% for entry in data.entry %}
 										<tr>
-											<td><a href="/DischargeSummaryDetails?fhir={{fhiripSelect}}&id={{ entry.resource.id }}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{{ entry.resource.date }}</a></td>
+											<td><a href="/ImagingStudy?fhir={{fhiripSelect}}&id={{ entry.resource.id }}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{{ entry.resource.date }}</a></td>
 											<td>{{ entry.resource.title }}</td>
 											<td>{{ entry.resource.subject.display }}</td>
 											<td>{{ entry.resource.encounter.display }}</td>
@@ -134,6 +134,7 @@
                             </div>
                         </div>
                     </div>
+					{% endif %}
 				</div>
 			</div>
             <!-- Footer -->
@@ -152,6 +153,7 @@
 	</div>
         <!-- End of Content Wrapper -->
     </div>
+
     <!-- End of Page Wrapper -->
 {% include 'utilities-js.html' %}    
 </body>

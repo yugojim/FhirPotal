@@ -14,7 +14,9 @@
 
 <body id="page-top">
     <!-- Page Wrapper -->
+	{% if user.is_authenticated %}
     <div id="wrapper">
+	
 	<!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
@@ -121,6 +123,7 @@
 	</div>
         <!-- End of Content Wrapper -->
     </div>
+	{% endif %}
     <!-- End of Page Wrapper -->
 {% include 'utilities-js.html' %}    
 </body>
