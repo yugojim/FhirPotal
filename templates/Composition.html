@@ -102,7 +102,7 @@
                                     <tbody>
 										{% for entry in data.entry %}
 										<tr>
-											<td><a href="/ImagingStudy?fhir={{fhiripSelect}}&id={{ entry.resource.id }}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{{ entry.resource.date }}</a></td>
+											<td><a href="/DischargeSummaryDetails?fhir={{fhiripSelect}}&id={{ entry.resource.id }}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{{ entry.resource.date }}</a></td>
 											<td>{{ entry.resource.title }}</td>
 											<td>{{ entry.resource.subject.display }}</td>
 											<td>{{ entry.resource.encounter.display }}</td>
