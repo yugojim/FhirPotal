@@ -41,7 +41,6 @@ urlpatterns = [
     path('Interpretation/', views.Interpretation, name='Interpretation'),
     path('ClinvarVariant/', views.ClinvarVariant, name='ClinvarVariant'),
     path('ObservationImaging/', views.ObservationImaging, name='ObservationImaging'),
-    path('linebot', views.linebot, name='linebot'),
     
     path('ImagingStudy', views.ImagingStudy, name='ImagingStudy'),
     path('working', views.working, name='working'),
