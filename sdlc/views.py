@@ -26,8 +26,8 @@ riskdf = pd.read_csv(risk, encoding='utf8')
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #fhir = 'http://192.168.211.9:8080/fhir/'#4600VM
-fhir = "http://152.38.3.196:10021/fhir"
-postgresip = "192.168.211.19"
+fhir = "http://104.208.68.39/fhir"
+postgresip = "104.208.68.39"
 #postgresip = "203.145.222.60"
 try:
     FHIR_URL = os.getenv('FHIR_URL')
@@ -45,9 +45,9 @@ except:
     pass
     
 @csrf_exempt 
-def index(request):
+def index(request): 
     user = request.user
-    #print(user.username)
+    #print(user.username)-
     right=models.Permission.objects.filter(user__username__startswith=user.username)
     #print(right)
     #print(type(right))
