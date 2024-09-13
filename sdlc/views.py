@@ -955,15 +955,26 @@ def logging(request):
 
     #for row in rows:
         #print(row)
-    
-    context = {
-        'right' : right,
-        'data' : rows,
-        'method' : method,
-        'formip' : formip,
-        'operationdate' : operationdate
-        }                 
-    return render(request, 'logging.html', context)
+    try:
+        Result,data = Function.DischargeSummaryCRUD(request)
+        context = {
+            'right' : right,
+            'data' : rows,
+            'method' : method,
+            'formip' : formip,
+            'operationdate' : operationdate
+            }                 
+        return render(request, 'logging.html', context)
+    except:
+        context = {
+            'right' : right,
+            'data' : 'rows',
+            'method' : 'method',
+            'formip' : 'formip',
+            'operationdate' : 'operationdate'
+            }                 
+        return render(request, 'logging.html', context)
+
 
 @csrf_exempt    
 def DischargeSummary(request):

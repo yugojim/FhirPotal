@@ -12,6 +12,48 @@ headers = {
   'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbVUwNEtnWHNTTllKYU1oUjNkYUxXSTYwLUhvRW5vUG5oeWxzdEpWRm1ZIn0.eyJleHAiOjE2OTYzMjM4NjQsImlhdCI6MTY5NjMyMDI2NCwianRpIjoiYjQ3MDZmZWUtMjUzZC00MjAyLWIyYTgtZGI1ZDc0ODg2NDQxIiwiaXNzIjoiaHR0cDovLzE1Mi4zOC4zLjEwMzo4MDgxL3JlYWxtcy9tZWRpY2FsLXNlcnZlciIsImF1ZCI6WyJmaGlyIiwiYWNjb3VudCJdLCJzdWIiOiI1ODQ3M2FhMC00ZDg4LTRlM2EtYTc5Mi05Y2QyZjQwMzNkN2IiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmaGlyIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtbWVkaWNhbC1zZXJ2ZXIiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImZoaXIiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImNsaWVudEhvc3QiOiIxNTIuMzguMS4xNSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LWZoaXIiLCJjbGllbnRBZGRyZXNzIjoiMTUyLjM4LjEuMTUiLCJjbGllbnRfaWQiOiJmaGlyIn0.wb0XfniJa78Q-FmZYKcZvk6NwzNKGOosNfj3JlrPC2oDO-gyEeFi80DQHEFzQtvrw5LNf5AZaF4fZGXz-zfDTVLcHUVnPUV3wYWL2wjWk7VoHQm69DnEb2-IlUU0q7bT5RfPultX-4-l1olhBKVrMC80fQF-_gmvsJRGaqm0D5W7j6HOG7yUVWr3NlVS9x6TX339EU_YEay0Vm3vTg__wcMPG2iZY7hMLG15MMUFU40YP2XyVfQ-r2k5WDNz-io_tJH6E8bY_ZQzVYAo3KAU-5_zEIVO2JjwWpQGRfnsuZ_NLck9ZhvhhjEq9dpEwAv_9XsG2KXt-6-Ft8__77xWgQ.eyJleHAiOjE2OTYzMjMyMjgsImlhdCI6MTY5NjMxOTYyOCwianRpIjoiNDFjM2I0MzUtYWRhZS00MDg0LWIxY2UtNjIwMzJhNmY4YTE3IiwiaXNzIjoiaHR0cDovLzE1Mi4zOC4zLjEwMzo4MDgxL3JlYWxtcy9tZWRpY2FsLXNlcnZlciIsImF1ZCI6WyJmaGlyIiwiYWNjb3VudCJdLCJzdWIiOiI1ODQ3M2FhMC00ZDg4LTRlM2EtYTc5Mi05Y2QyZjQwMzNkN2IiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmaGlyIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtbWVkaWNhbC1zZXJ2ZXIiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImZoaXIiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImNsaWVudEhvc3QiOiIxNTIuMzguMS4xNSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LWZoaXIiLCJjbGllbnRBZGRyZXNzIjoiMTUyLjM4LjEuMTUiLCJjbGllbnRfaWQiOiJmaGlyIn0.H0obBuio7JdTMmdt0oKxOKNfik_FTyZrpg6pFHwGuVEmK0Z1TRHTQEP0GNsRVTYlMIE7G3I36oSqZ5apYhLUyAe0DQylbVNgSVb7uQUO_j2UNxwJWUrUS5kaxn_vVVItFG09bkG5u8oNkm3PIqo-rXVjDRr5WaSEM4hw-QcwOHymx8vwuvlFE13WcRXE_aJ-tHQky3UeY--L073XZUDhX9h7W2nwFCbbrq8basxHuwCNXAsUPUnuwgJL1Rdt72YJSngUxEB1Tlu-P94BC3IWo0sUi1QQwlpo_hOWXYcJKUcITVSUQu_DiBUpgNpyjWLqURV77Pr79BYizZGS-G-MQw.eyJleHAiOjE2OTYzMjMyMjgsImlhdCI6MTY5NjMxOTYyOCwianRpIjoiNDFjM2I0MzUtYWRhZS00MDg0LWIxY2UtNjIwMzJhNmY4YTE3IiwiaXNzIjoiaHR0cDovLzE1Mi4zOC4zLjEwMzo4MDgxL3JlYWxtcy9tZWRpY2FsLXNlcnZlciIsImF1ZCI6WyJmaGlyIiwiYWNjb3VudCJdLCJzdWIiOiI1ODQ3M2FhMC00ZDg4LTRlM2EtYTc5Mi05Y2QyZjQwMzNkN2IiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmaGlyIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtbWVkaWNhbC1zZXJ2ZXIiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImZoaXIiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImNsaWVudEhvc3QiOiIxNTIuMzguMS4xNSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LWZoaXIiLCJjbGllbnRBZGRyZXNzIjoiMTUyLjM4LjEuMTUiLCJjbGllbnRfaWQiOiJmaGlyIn0.H0obBuio7JdTMmdt0oKxOKNfik_FTyZrpg6pFHwGuVEmK0Z1TRHTQEP0GNsRVTYlMIE7G3I36oSqZ5apYhLUyAe0DQylbVNgSVb7uQUO_j2UNxwJWUrUS5kaxn_vVVItFG09bkG5u8oNkm3PIqo-rXVjDRr5WaSEM4hw-QcwOHymx8vwuvlFE13WcRXE_aJ-tHQky3UeY--L073XZUDhX9h7W2nwFCbbrq8basxHuwCNXAsUPUnuwgJL1Rdt72YJSngUxEB1Tlu-P94BC3IWo0sUi1QQwlpo_hOWXYcJKUcITVSUQu_DiBUpgNpyjWLqURV77Pr79BYizZGS-G-MQw.eyJleHAiOjE2OTYzMjEwMjUsImlhdCI6MTY5NjMxNzQyNSwianRpIjoiMzQ2Yzc3MTctMGE5MS00YzEyLWEzNjAtMTIwMDhiODNhNGFkIiwiaXNzIjoiaHR0cDovLzE1Mi4zOC4zLjEwMzo4MDgxL3JlYWxtcy9tZWRpY2FsLXNlcnZlciIsImF1ZCI6WyJmaGlyIiwiYWNjb3VudCJdLCJzdWIiOiI1ODQ3M2FhMC00ZDg4LTRlM2EtYTc5Mi05Y2QyZjQwMzNkN2IiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmaGlyIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtbWVkaWNhbC1zZXJ2ZXIiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImZoaXIiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImNsaWVudEhvc3QiOiIxNTIuMzguMS4xNSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LWZoaXIiLCJjbGllbnRBZGRyZXNzIjoiMTUyLjM4LjEuMTUiLCJjbGllbnRfaWQiOiJmaGlyIn0.GpcDZDEV4XqqCwYi99RjzcAgnVEQE9DDep2KA0nDCKBin6_9al39-AgTmTF32mltcz60egWb5vKJQXLStO3nMY54tcokFBMN-dWUlXUrlmmYWe6au8rFvgy02mEQ3cM_84OPTZFuBbPygu785CRNHaExw9LRQoRKVaSg1dJi4Zb6j7nMgr7yIQOSktv2MgV9-BRs0Y22APou9Qm42f_Bs9jjY8B-CEqSQp5rTltSlTYgFRzL7z27saHfWMuNyxBOavkPLspcsa1SnsuvPSAmPY5AnkbtFTKeoOSWROUWB_0PJKMZD0bl0Xzq3885GW3CB3tYwzdyX7xPeSlxhNgaZA'
 }
 payload = {}
+
+import psycopg2
+from datetime import timedelta
+#postgresip = "192.168.211.19"
+postgresip = "104.208.68.39"
+def postlog(request):
+    try:
+        user = request.user
+        ip_addr = request.remote_addr
+    except:
+        user = request.user
+        ip_addr = "192.168.211.10"        
+    #print(ip_addr)
+    method = str(request.method)
+    #print(method)
+    try:
+        host_url  = request.url
+    except:
+        host_url  =  "POST /VisitNote HTTP/1.1"
+    #print(host_url)
+    headers=dict(request.headers)
+    #print(type(headers))
+    #print(headers)
+    conn = psycopg2.connect(database="consent", user="postgres", password="1qaz@WSX3edc", host=postgresip, port="5432")
+    #print('Opened database')
+    cur = conn.cursor()
+    #sql="INSERT INTO public.log (ip_addr, method, host_url, headers, datetime ) VALUES ( '123.123.123.123', 'GET', 'http://1', 'header', '2023-10-11 08:12:22');"
+    sql="INSERT INTO public.log (ip_addr, method, host_url, headers, datetime ) VALUES ('" + ip_addr + " " + user + "', '" +  method + "', '" + host_url + "', '"\
+         + json.dumps(headers) + "', '"+ (datetime.now()+timedelta(hours=8)).strftime("%Y/%m/%d %H:%M:%S") +"');"
+
+
+    #print(sql)
+    cur.execute(sql)
+    conn.commit()
+
+    cur.execute('SELECT * FROM public.log')
+    rows = cur.fetchall()
+    #for row in rows:
+        #print(row)
+    conn.close()
+    #print('Close database')
+    return rows
 def PatientCURD(request):
     jsonPath=str(pathlib.Path().absolute()) + "/static/template/Patient病人資料.json"
     #print(jsonPath)
